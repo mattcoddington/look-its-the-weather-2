@@ -25,7 +25,7 @@ export const fetchApiData = (data) => async (dispatch) => {
   try {
     dispatch(setLoading(true));
     const response = await fetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${data}&days=5&aqi=no&alerts=no`
+      `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${data}&days=5&aqi=no&alerts=no`
     );
     const apiData = await response.json();
     dispatch(setSelectedIdx(0));
