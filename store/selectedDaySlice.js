@@ -5,59 +5,7 @@ const selectedDaySlice = createSlice({
   initialState: {
     selectedIdx: 0,
     day: "Today",
-    forecast: {
-      day: {
-        condition: {
-          text: "",
-          icon: "",
-        },
-      },
-      condition: {
-        text: "",
-        icon: "",
-      },
-      hour: [
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        {
-          condition: {
-            text: "",
-            icon: "",
-          },
-          temp_f: "",
-          humidity: "",
-          will_it_rain: "",
-        },
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        {
-          condition: {
-            text: "",
-            icon: "",
-          },
-          temp_f: "",
-          humidity: "",
-          will_it_rain: "",
-        },
-      ],
-    },
+    forecast: {},
   },
   reducers: {
     setDay: (state, action) => {
