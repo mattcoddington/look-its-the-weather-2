@@ -6,7 +6,7 @@ const apiKey = process.env.WEATHERAPI_KEY;
 export const apiSlice = createSlice({
   name: "api",
   initialState: {
-    loading: false,
+    loading: true,
     data: null,
   },
   reducers: {
@@ -38,5 +38,7 @@ export const fetchApiData = (data) => async (dispatch) => {
     dispatch(setLoading(false));
   }
 };
+
+export const getLoading = (state) => state.api && state.api.loading;
 
 export default apiSlice.reducer;

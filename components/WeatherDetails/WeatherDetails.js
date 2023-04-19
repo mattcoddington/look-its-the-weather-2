@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import { useSelector } from "react-redux";
 import { getDay, getForecast } from "../../store/selectedDaySlice";
+import { getLoading } from "../../store/apiSlice";
 
 import { dayOfWeek } from "../../util/dayOfWeek";
 
@@ -22,15 +23,20 @@ const Divider = styled.div`
 const WeatherDetails = () => {
   const day = useSelector(getDay);
   const forecast = useSelector(getForecast);
-
-  console.log("selected day: ", day);
+  const loading = useSelector(getLoading);
 
   return (
     <Container>
-      <Overview day={day} forecast={forecast.day} />
-      <Divider />
-      <Specifics tod="Day" forecast={forecast.hour[12]} />
-      <Specifics tod="Night" forecast={forecast.hour[23]} />
+      {!loading ? (
+        <>
+          <Overview day={day} forecast={forecast.day} />
+          <Divider />
+          <Specifics tod="Day" forecast={forecast.hour[12]} />
+          <Specifics tod="Night" forecast={forecast.hour[23]} />
+        </>
+      ) : (
+        <></>
+      )}
     </Container>
   );
 };

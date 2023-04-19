@@ -73,7 +73,7 @@ const Overview = ({ day, forecast }) => {
   const maxTemp = Math.round(forecast.maxtemp_f);
   const minTemp = Math.round(forecast.mintemp_f);
 
-  return (
+  return forecast ? (
     <Container>
       <Icon>
         <img src={icon} alt={condition} title={condition} />
@@ -93,6 +93,8 @@ const Overview = ({ day, forecast }) => {
         </HighLowContainer>
       </ContentContainer>
     </Container>
+  ) : (
+    <></>
   );
 };
 
